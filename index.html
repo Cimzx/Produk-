@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cimzx Official - Jual Nokos & Sosmed</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: white;
+}
+
+/* NAVBAR */
+nav {
+    background: #111;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00f7ff;
+    box-shadow: 0 0 10px #00f7ff;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+.hero img {
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00f7ff;
+    margin-bottom: 15px;
+}
+.hero h1 {
+    font-size: 35px;
+    color: #00f7ff;
+}
+.hero p {
+    color: #ccc;
+}
+
+/* CARD */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: #111;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 0 15px #00f7ff33;
+    transition: 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00f7ff;
+}
+.card h3 {
+    color: #00f7ff;
+}
+.card p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #00f7ff;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn:hover {
+    background: #00c3cc;
+}
+
+/* QRIS */
+.qris {
+    text-align: center;
+    padding: 40px 20px;
+}
+.qris h2 {
+    color: #00f7ff;
+}
+.qris img {
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00f7ff;
+    margin-top: 15px;
+}
+
+/* TESTIMONI */
+.testi {
+    background: #111;
+    padding: 30px;
+    text-align: center;
+}
+.testi h2 {
+    color: #00f7ff;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    margin-top: 20px;
+    color: #777;
+}
+</style>
+
+</head>
+<body>
+
+<nav>🔥 𝐂𝐈𝐌𝐙𝐗 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋 🔥</nav>
+
+<section class="hero">
+    <!-- LOGO -->
+    <img src="https://cdn.nekohime.site/file/NCuIXj9T.png" alt="Logo Cimzx Official">
+
+    <h1>Welcome To Cimzx Official</h1>
+    <p>Toko Jual Beli Nokos, Suntik Sosmed & Panel Pterodactyl Termurah & Terpercaya</p>
+</section>
+
+<div class="container">
+
+    <div class="card">
+        <h3>📱 Nomor Kosong (Nokos)</h3>
+        <p>Ready berbagai negara: <section style="padding:40px;text-align:center;background:#0a0a0a;color:white">
+
+<h2 style="color:#00f7ff">📱 Pricelist Nokos Otomatis</h2>
+
+<!-- PILIH NEGARA -->
+<select id="negara" style="padding:10px;margin:10px;border-radius:8px">
+  <option value="indo">🇮🇩 Indonesia</option>
+  <option value="usa">🇺🇸 USA</option>
+  <option value="india">🇮🇳 India</option>
+  <option value="ph">🇵🇭 Filipina</option>
+  <option value="vn">🇻🇳 Vietnam</option>
+</select>
+
+<!-- PILIH TIPE -->
+<select id="tipe" style="padding:10px;margin:10px;border-radius:8px">
+  <option value="wa">WhatsApp</option>
+  <option value="tele">Telegram</option>
+  <option value="all">All App</option>
+</select>
+
+<h3 id="harga" style="color:#00f7ff">Harga: -</h3>
+
+<a id="orderBtn" href="#" target="_blank"
+style="display:inline-block;padding:12px 20px;background:#00f7ff;color:black;border-radius:10px;text-decoration:none;font-weight:bold">
+Order Sekarang
+</a>
+
+</section>
+
+<script>
+const hargaData = {
+  indo: { wa: 5000, tele: 6000, all: 8000 },
+  usa: { wa: 8000, tele: 9000, all: 12000 },
+  india: { wa: 6000, tele: 7000, all: 9000 },
+  ph: { wa: 7000, tele: 8000, all: 10000 },
+  vn: { wa: 7000, tele: 8000, all: 10000 }
+};
+
+function updateHarga() {
+  const negara = document.getElementById("negara").value;
+  const tipe = document.getElementById("tipe").value;
+
+  const harga = hargaData[negara][tipe];
+
+  document.getElementById("harga").innerText = 
+    "Harga: Rp " + harga.toLocaleString();
+
+  // auto isi pesan WA
+  const pesan = `Halo admin, saya mau order nokos
+Negara: ${negara.toUpperCase()}
+Tipe: ${tipe.toUpperCase()}
+Harga: Rp ${harga}`;
+
+  document.getElementById("orderBtn").href = 
+    "https://wa.me/639956428611?text=" + encodeURIComponent(pesan);
+}
+
+document.getElementById("negara").addEventListener("change", updateHarga);
+document.getElementById("tipe").addEventListener("change", updateHarga);
+
+updateHarga();
+</script></p>
+        <a href="https://wa.me/639956428611" class="btn">Order Sekarang</a>
+    </div>
+
+    <div class="card">
+        <h3>📈 Followers Sosmed</h3>
+        <p><section style="padding:40px;text-align:center;background:#0a0a0a;color:white">
+
+<h2 style="color:#00f7ff">📈 Pricelist Followers Sosmed</h2>
+
+<!-- PILIH PLATFORM -->
+<select id="platform" style="padding:10px;margin:10px;border-radius:8px">
+  <option value="ig">Instagram</option>
+  <option value="tt">TikTok</option>
+  <option value="yt">YouTube</option>
+</select>
+
+<!-- PILIH PAKET -->
+<select id="paket" style="padding:10px;margin:10px;border-radius:8px">
+  <option value="100">100 Followers</option>
+  <option value="500">500 Followers</option>
+  <option value="1000">1000 Followers</option>
+  <option value="5000">5000 Followers</option>
+</select>
+
+<h3 id="hargaFollowers" style="color:#00f7ff">Harga: -</h3>
+
+<a id="orderFollowers" href="#" target="_blank"
+style="display:inline-block;padding:12px 20px;background:#00f7ff;color:black;border-radius:10px;text-decoration:none;font-weight:bold">
+Order Sekarang
+</a>
+
+</section>
+
+<script>
+const hargaFollowers = {
+  ig: {
+    100: 5.000,
+    500: 15.000,
+    1000: 25.000,
+    5000: 100.000
+  },
+  tt: {
+    100: 4.000,
+    500: 12.000,
+    1000: 20.000,
+    5000: 85.000
+  },
+  yt: {
+    100: 6.000,
+    500: 18.000,
+    1000: 30.000,
+    5000: 120.000
+  }
+};
+
+function updateFollowers() {
+  const platform = document.getElementById("platform").value;
+  const paket = document.getElementById("paket").value;
+
+  const harga = hargaFollowers[platform][paket];
+
+  document.getElementById("hargaFollowers").innerText =
+    "Harga: Rp " + harga.toLocaleString();
+
+  const namaPlatform = {
+    ig: "Instagram",
+    tt: "TikTok",
+    yt: "YouTube"
+  };
+
+  const pesan = `Halo admin, saya mau order followers
+Platform: ${namaPlatform[platform]}
+Jumlah: ${paket} Followers
+Harga: Rp ${harga}`;
+
+  document.getElementById("orderFollowers").href =
+    "https://wa.me/639956428611?text=" + encodeURIComponent(pesan);
+}
+
+document.getElementById("platform").addEventListener("change", updateFollowers);
+document.getElementById("paket").addEventListener("change", updateFollowers);
+
+updateFollowers();
+</script></p>
+        <a href="https://wa.me/639956428611" class="btn">Order Sekarang</a>
+    </div>
+
+    <div class="card">
+        <h3>⚙️ Panel Pterodactyl (Legal)</h3>
+        <p><section style="padding:40px;text-align:center;background:#0a0a0a;color:white">
+
+<h2 style="color:#00f7ff">⚙️ Pricelist Panel Legal Bot WhatsApp</h2>
+
+<!-- PILIH PAKET -->
+<select id="panel" style="padding:10px;margin:10px;border-radius:8px">
+  <option value="1gb">1GB RAM</option>
+  <option value="2gb">2GB RAM</option>
+  <option value="4gb">4GB RAM</option>
+  <option value="8gb">8GB RAM</option>
+  <option value="unli">UNLI RAM</option>
+</select>
+
+<h3 id="hargaPanel" style="color:#00f7ff">Harga: -</h3>
+<p id="detailPanel" style="color:#ccc"></p>
+
+<a id="orderPanel" href="#" target="_blank"
+style="display:inline-block;padding:12px 20px;background:#00f7ff;color:black;border-radius:10px;text-decoration:none;font-weight:bold">
+Order Sekarang
+</a>
+
+</section>
+
+<script>
+const panelData = {
+  "1gb": { harga: 10.000, detail: "1GB RAM | 1 Core | Cocok bot ringan" },
+  "2gb": { harga: 15.000, detail: "2GB RAM | 1 Core | Stabil" },
+  "4gb": { harga: 25.000, detail: "4GB RAM | 2 Core | Lancar" },
+  "8gb": { harga: 40.000, detail: "8GB RAM | 4 Core | Kencang" },
+  "unli": { harga: 50.000, detail: "Unlimited RAM | Full akses | Anti limit" }
+};
+
+function updatePanel() {
+  const panel = document.getElementById("panel").value;
+
+  const data = panelData[panel];
+
+  document.getElementById("hargaPanel").innerText =
+    "Harga: Rp " + data.harga.toLocaleString();
+
+  document.getElementById("detailPanel").innerText =
+    data.detail;
+
+  const pesan = `Halo admin, saya mau order panel bot WhatsApp
+Paket: ${panel.toUpperCase()}
+Detail: ${data.detail}
+Harga: Rp ${data.harga}`;
+
+  document.getElementById("orderPanel").href =
+    "https://wa.me/639956428611?text=" + encodeURIComponent(pesan);
+}
+
+document.getElementById("panel").addEventListener("change", updatePanel);
+
+updatePanel();
+</script></p>
+        <a href="https://wa.me/639956428611" class="btn">Order Sekarang</a>
+    </div>
+
+</div>
+
+<!-- QRIS PAYMENT -->
+<section class="qris">
+    <h2>💳 PAYMENT QRIS</h2>
+    <p>Scan QRIS di bawah untuk pembayaran</p>
+
+    <img src="https://cdn.nekohime.site/file/XisfJoVp.png" alt="QRIS Payment">
+
+    <br>
+    <a href="https://cdn.nekohime.site/file/XisfJoVp.png" download class="btn">Download QRIS</a>
+</section>
+
+<section class="testi">
+    <h2>⭐ TESTIMONI ⭐</h2>
+    <p>"Pelayanan Cepat, Admin Ramah!"</p>
+    <p>"Nokos Langsung Ready, Recommended!"</p>
+    <p>"Followers Real Masuk, Mantap!"</p>
+</section>
+
+<footer>
+    <p>Contact Admin:</p>
+    <p>WhatsApp: 639956428611</p>
+    <p>Telegram: t.me/CimzxOffc</p>
+    <p>© 𝙲𝚒𝚖𝚣𝚡 𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 🥶</p>
+</footer>
+
+</body>
+</html>
